@@ -88,7 +88,7 @@ curseforge {
     apiKey = curseApiKey
     project {
         releaseType = curseReleaseType
-        id = "1"
+        id = "240798"
         changelog = file("build/libs/changelog.txt")
         addGameVersion minecraft_version
         addArtifact devJar
