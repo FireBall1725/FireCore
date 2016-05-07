@@ -20,7 +20,6 @@
 
 package com.fireball1725.firecore.client.gui;
 
-import com.fireball1725.firecore.ModInfo;
 import com.fireball1725.firecore.common.util.GuiHelper;
 import com.fireball1725.firecore.common.util.OpenGLHelper;
 import net.minecraft.client.gui.inventory.GuiContainer;
@@ -72,11 +71,6 @@ public abstract class GuiBase extends GuiContainer {
 
     public void bindTexture(String base, String file) {
         ResourceLocation resourceLocation = new ResourceLocation(base, "textures/" + file);
-        this.mc.getTextureManager().bindTexture(resourceLocation);
-    }
-
-    public void bindTexture(String file) {
-        ResourceLocation resourceLocation = new ResourceLocation(ModInfo.MOD_ID, "textures/" + file);
         this.mc.getTextureManager().bindTexture(resourceLocation);
     }
 

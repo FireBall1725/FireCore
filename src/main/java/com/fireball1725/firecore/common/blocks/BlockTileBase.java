@@ -1,6 +1,5 @@
 package com.fireball1725.firecore.common.blocks;
 
-import com.fireball1725.firecore.ModInfo;
 import com.fireball1725.firecore.common.tileentities.TileEntityBase;
 import com.fireball1725.firecore.common.util.IBlockRenderer;
 import com.fireball1725.firecore.common.util.IOrientable;
@@ -33,8 +32,8 @@ public abstract class BlockTileBase extends BlockBase implements ITileEntityProv
     @Nonnull
     private Class<? extends TileEntity> tileEntityClass;
 
-    public BlockTileBase(Material material, String resourcePath) {
-        super(material, resourcePath);
+    public BlockTileBase(Material material, String resourcePath, String modId) {
+        super(material, resourcePath, modId);
     }
 
     protected void setTileEntity(final Class<? extends TileEntity> clazz) {
@@ -42,7 +41,7 @@ public abstract class BlockTileBase extends BlockBase implements ITileEntityProv
         this.setTileProvider(true);
         this.isInventory = IInventory.class.isAssignableFrom(clazz);
 
-        String tileName = "tileentity." + ModInfo.MOD_ID + "." + clazz.getSimpleName();
+        String tileName = "tileentity." + this.modId + "." + clazz.getSimpleName();
         GameRegistry.registerTileEntity(this.tileEntityClass, tileName);
     }
 

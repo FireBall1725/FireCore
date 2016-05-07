@@ -1,6 +1,5 @@
 package com.fireball1725.firecore.common.blocks;
 
-import com.fireball1725.firecore.ModInfo;
 import com.fireball1725.firecore.common.tileentities.TileEntityBase;
 import com.fireball1725.firecore.common.util.*;
 import net.minecraft.block.Block;
@@ -29,8 +28,9 @@ public abstract class BlockBase extends Block implements IBlockRenderer {
     protected boolean isInventory = false;
     protected String resourcePath = "";
     protected String internalName = "";
+    protected String modId = "";
 
-    protected BlockBase(Material material, String resourcePath) {
+    protected BlockBase(Material material, String resourcePath, String modId) {
         super(material);
 
         setStepSound(SoundType.STONE);
@@ -38,6 +38,7 @@ public abstract class BlockBase extends Block implements IBlockRenderer {
         setResistance(5.0F);
         setHarvestLevel("pickaxe", 0);
         this.resourcePath = resourcePath;
+        this.modId = modId;
     }
 
     public String getInternalName() {
@@ -52,7 +53,7 @@ public abstract class BlockBase extends Block implements IBlockRenderer {
     public String getUnlocalizedName() {
         String blockName = getUnwrappedUnlocalizedName(super.getUnlocalizedName());
 
-        return String.format("tile.%s.%s", ModInfo.MOD_ID, blockName);
+        return String.format("tile.%s.%s", this.modId, blockName);
     }
 
     private String getUnwrappedUnlocalizedName(String unlocalizedName) {
@@ -140,7 +141,7 @@ public abstract class BlockBase extends Block implements IBlockRenderer {
     @SideOnly(Side.CLIENT)
     @Override
     public void registerBlockRenderer() {
-        final String resourcePath = String.format("%s:%s", ModInfo.MOD_ID, this.resourcePath);
+        final String resourcePath = String.format("%s:%s", this.modId, this.resourcePath);
 
         ModelLoader.setCustomStateMapper(this, new DefaultStateMapper() {
             @Override
@@ -153,7 +154,7 @@ public abstract class BlockBase extends Block implements IBlockRenderer {
     @SideOnly(Side.CLIENT)
     @Override
     public void registerBlockItemRenderer() {
-        final String resourcePath = String.format("%s:%s", ModInfo.MOD_ID, this.resourcePath);
+        final String resourcePath = String.format("%s:%s", this.modId, this.resourcePath);
 
         List<ItemStack> subBlocks = new ArrayList<ItemStack>();
         getSubBlocks(Item.getItemFromBlock(this), null, subBlocks);
