@@ -11,11 +11,11 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import java.util.Locale;
 
 public class RegistrationHelper {
-    public static Block registerBlock(Class<? extends Block> blockClass) {
-        return registerBlock(blockClass, ItemBlock.class);
+    public static Block registerBlock(Class<? extends Block> blockClass, String modId) {
+        return registerBlock(blockClass, ItemBlock.class, modId);
     }
 
-    public static Block registerBlock(Class<? extends Block> blockClass, Class<? extends ItemBlock> itemBlockClass) {
+    public static Block registerBlock(Class<? extends Block> blockClass, Class<? extends ItemBlock> itemBlockClass, String modId) {
         Block block = null;
         ItemBlock itemBlock;
         String internalName;
@@ -32,7 +32,7 @@ public class RegistrationHelper {
             if (internalName.isEmpty())
                 throw new IllegalArgumentException(String.format("Unlocalized name cannot be blank! Item: %s", blockClass.getCanonicalName()));
 
-            block.setRegistryName(internalName);
+            block.setRegistryName(modId, internalName);
             block.setUnlocalizedName(internalName);
             itemBlock.setRegistryName(block.getRegistryName());
 
@@ -53,7 +53,7 @@ public class RegistrationHelper {
         return block;
     }
 
-    public static Item registerItem(Class<? extends Item> itemClass) {
+    public static Item registerItem(Class<? extends Item> itemClass, String modId) {
         Item item = null;
         String internalName;
 
@@ -68,7 +68,7 @@ public class RegistrationHelper {
             if (internalName.isEmpty())
                 throw new IllegalArgumentException(String.format("Unlocalized name cannot be blank! Item: %s", itemClass.getCanonicalName()));
 
-            item.setRegistryName(internalName);
+            item.setRegistryName(modId, internalName);
             item.setUnlocalizedName(internalName);
 
             GameRegistry.register(item);

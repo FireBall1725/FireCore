@@ -1,5 +1,6 @@
 package com.fireball1725.firecore.common.blocks;
 
+import com.fireball1725.firecore.ModInfo;
 import com.fireball1725.firecore.common.util.RegistrationHelper;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
@@ -44,6 +45,6 @@ public enum Blocks {
     }
 
     private void registerBlock() {
-        block = RegistrationHelper.registerBlock(blockClass, itemBlockClass);
+        block = RegistrationHelper.registerBlock(blockClass, itemBlockClass, ModInfo.MOD_ID);
     }
 }

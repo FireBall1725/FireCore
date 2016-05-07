@@ -1,5 +1,6 @@
 package com.fireball1725.firecore.common.items;
 
+import com.fireball1725.firecore.ModInfo;
 import com.fireball1725.firecore.common.util.RegistrationHelper;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -37,6 +38,6 @@ public enum Items {
     }
 
     private void registerItem() {
-        item = RegistrationHelper.registerItem(itemClass);
+        item = RegistrationHelper.registerItem(itemClass, ModInfo.MOD_ID);
     }
 }
