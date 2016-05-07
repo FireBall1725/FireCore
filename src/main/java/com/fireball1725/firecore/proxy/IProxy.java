@@ -40,6 +40,7 @@ public interface IProxy {
 
     /**
      * Register Configuration
+     *
      * @param configFile Configuration File
      */
     void registerConfiguration(File configFile);

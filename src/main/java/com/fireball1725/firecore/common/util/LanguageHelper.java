@@ -1,6 +1,5 @@
 package com.fireball1725.firecore.common.util;
 
-import com.fireball1725.firecore.ModInfo;
 import net.minecraft.util.text.translation.I18n;
 
 public enum LanguageHelper {

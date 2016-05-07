@@ -3,7 +3,6 @@ package com.fireball1725.firecore.common.integrations;
 import com.fireball1725.firecore.FireCore;
 import com.fireball1725.firecore.IntegrationModIDs;
 import com.fireball1725.firecore.common.integrations.waila.Waila;
-import com.fireball1725.firecore.common.util.LogHelper;
 import net.minecraftforge.fml.common.Loader;
 
 import java.util.ArrayList;

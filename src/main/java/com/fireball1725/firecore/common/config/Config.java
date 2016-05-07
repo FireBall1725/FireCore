@@ -1,7 +1,7 @@
 package com.fireball1725.firecore.common.config;
 
-import com.fireball1725.firecore.ModInfo;
 import com.fireball1725.firecore.FireCore;
+import com.fireball1725.firecore.ModInfo;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraftforge.common.config.ConfigElement;
 import net.minecraftforge.common.config.Configuration;

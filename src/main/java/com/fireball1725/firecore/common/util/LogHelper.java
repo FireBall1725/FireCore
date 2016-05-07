@@ -1,7 +1,5 @@
 package com.fireball1725.firecore.common.util;
 
-import com.fireball1725.firecore.FireCore;
-import com.fireball1725.firecore.ModInfo;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
