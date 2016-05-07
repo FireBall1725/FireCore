@@ -26,10 +26,12 @@ public class FireCore {
 
     public static Configuration configuration;
 
+    public LogHelper logHelper = new LogHelper(ModInfo.MOD_NAME);
+
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         final Stopwatch stopwatch = Stopwatch.createStarted();
-        LogHelper.info("Pre Initialization (Started)");
+        logHelper.info("Pre Initialization (Started)");
 
         proxy.registerConfiguration(event.getSuggestedConfigurationFile());
 
@@ -46,29 +48,29 @@ public class FireCore {
         IntegrationsManager.instance().index();
         IntegrationsManager.instance().preInit();
 
-        LogHelper.info("Pre Initialization (Ended after " + stopwatch.elapsed(TimeUnit.MILLISECONDS) + "ms)");
+        logHelper.info("Pre Initialization (Ended after " + stopwatch.elapsed(TimeUnit.MILLISECONDS) + "ms)");
     }
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
         final Stopwatch stopwatch = Stopwatch.createStarted();
-        LogHelper.info("Initialization (Started)");
+        logHelper.info("Initialization (Started)");
 
         proxy.registerRecipes();
 
         IntegrationsManager.instance().init();
 
-        LogHelper.info("Initialization (Ended after " + stopwatch.elapsed(TimeUnit.MILLISECONDS) + "ms)");
+        logHelper.info("Initialization (Ended after " + stopwatch.elapsed(TimeUnit.MILLISECONDS) + "ms)");
     }
 
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event) {
         final Stopwatch stopwatch = Stopwatch.createStarted();
-        LogHelper.info("Post Initialization (Started)");
+        logHelper.info("Post Initialization (Started)");
 
         IntegrationsManager.instance().postInit();
 
-        LogHelper.info("Post Initialization (Ended after " + stopwatch.elapsed(TimeUnit.MILLISECONDS) + "ms)");
+        logHelper.info("Post Initialization (Ended after " + stopwatch.elapsed(TimeUnit.MILLISECONDS) + "ms)");
     }
 
     @SubscribeEvent

@@ -18,12 +18,13 @@ public enum LanguageHelper {
         this.name = name;
     }
 
-    public String translateMessage(String message) {
-        if (this.name == "")
+    public String translateMessage(String modId, String message) {
+        if (this.name.equals(""))
             return I18n.translateToLocal(message);
 
-        return I18n.translateToLocal(String.format("%s.%s.%s", this.name, ModInfo.MOD_ID, message));
+        return I18n.translateToLocal(String.format("%s.%s.%s", this.name, modId, message));
     }
 
     //Todo: for later Minecraft.getMinecraft().thePlayer.uniqueID.toString() == "4f3a8d1e-33c1-44e7-bce8-e683027c7dac"
+
 }

@@ -1,6 +1,6 @@
 package com.fireball1725.firecore.common.util;
 
-import com.fireball1725.firecore.ModInfo;
+import com.fireball1725.firecore.FireCore;
 import com.fireball1725.firecore.common.blocks.BlockBase;
 import com.fireball1725.firecore.common.items.ItemBase;
 import net.minecraft.block.Block;
@@ -32,7 +32,7 @@ public class RegistrationHelper {
             if (internalName.isEmpty())
                 throw new IllegalArgumentException(String.format("Unlocalized name cannot be blank! Item: %s", blockClass.getCanonicalName()));
 
-            block.setRegistryName(ModInfo.MOD_ID, internalName);
+            block.setRegistryName(internalName);
             block.setUnlocalizedName(internalName);
             itemBlock.setRegistryName(block.getRegistryName());
 
@@ -44,9 +44,9 @@ public class RegistrationHelper {
                 ((IBlockRenderer) block).registerBlockItemRenderer();
             }
 
-            LogHelper.info(String.format("Registered block (%s)", blockClass.getCanonicalName()));
+            FireCore.instance.logHelper.info(String.format("Registered block (%s)", blockClass.getCanonicalName()));
         } catch (Exception ex) {
-            LogHelper.fatal(String.format("Fatal Error while registering block (%s)", blockClass.getCanonicalName()));
+            FireCore.instance.logHelper.fatal(String.format("Fatal Error while registering block (%s)", blockClass.getCanonicalName()));
             ex.printStackTrace();
         }
 
@@ -68,7 +68,7 @@ public class RegistrationHelper {
             if (internalName.isEmpty())
                 throw new IllegalArgumentException(String.format("Unlocalized name cannot be blank! Item: %s", itemClass.getCanonicalName()));
 
-            item.setRegistryName(ModInfo.MOD_ID, internalName);
+            item.setRegistryName(internalName);
             item.setUnlocalizedName(internalName);
 
             GameRegistry.register(item);
@@ -77,9 +77,9 @@ public class RegistrationHelper {
                 ((IItemRenderer) item).registerItemRenderer();
             }
 
-            LogHelper.info(String.format("Registered item (%s)", itemClass.getCanonicalName()));
+            FireCore.instance.logHelper.info(String.format("Registered item (%s)", itemClass.getCanonicalName()));
         } catch (Exception ex) {
-            LogHelper.fatal(String.format("Fatal Error while registering item (%s)", itemClass.getCanonicalName()));
+            FireCore.instance.logHelper.fatal(String.format("Fatal Error while registering item (%s)", itemClass.getCanonicalName()));
             ex.printStackTrace();
         }
 

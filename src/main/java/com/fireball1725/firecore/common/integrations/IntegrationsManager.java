@@ -1,5 +1,6 @@
 package com.fireball1725.firecore.common.integrations;
 
+import com.fireball1725.firecore.FireCore;
 import com.fireball1725.firecore.IntegrationModIDs;
 import com.fireball1725.firecore.common.integrations.waila.Waila;
 import com.fireball1725.firecore.common.util.LogHelper;
@@ -33,13 +34,13 @@ public class IntegrationsManager {
             if (Loader.isModLoaded(entry.getKey())) {
                 try {
                     integrationMods.add(entry.getValue().newInstance());
-                    LogHelper.info("Integration with " + entry.getKey() + ": Enabled");
+                    FireCore.instance.logHelper.info("Integration with " + entry.getKey() + ": Enabled");
                 } catch (Throwable ex) {
-                    LogHelper.error("Failed to load integration correctly");
+                    FireCore.instance.logHelper.error("Failed to load integration correctly");
                     ex.printStackTrace();
                 }
             } else {
-                LogHelper.info("Integration with " + entry.getKey() + ": Disabled");
+                FireCore.instance.logHelper.info("Integration with " + entry.getKey() + ": Disabled");
             }
         }
     }
@@ -49,7 +50,7 @@ public class IntegrationsManager {
             try {
                 integration.preInit();
             } catch (Throwable ex) {
-                LogHelper.error("(Pre Init) Unable to load integration from " + integration.getClass());
+                FireCore.instance.logHelper.error("(Pre Init) Unable to load integration from " + integration.getClass());
                 ex.printStackTrace();
             }
         }
@@ -60,7 +61,7 @@ public class IntegrationsManager {
             try {
                 integration.init();
             } catch (Throwable ex) {
-                LogHelper.error("(Init) Unable to load integration from " + integration.getClass());
+                FireCore.instance.logHelper.error("(Init) Unable to load integration from " + integration.getClass());
                 ex.printStackTrace();
             }
         }
@@ -71,7 +72,7 @@ public class IntegrationsManager {
             try {
                 integration.postInit();
             } catch (Throwable ex) {
-                LogHelper.error("(Post Init) Unable to load integration from " + integration.getClass());
+                FireCore.instance.logHelper.error("(Post Init) Unable to load integration from " + integration.getClass());
                 ex.printStackTrace();
             }
         }
