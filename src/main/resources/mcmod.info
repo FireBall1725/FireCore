@@ -1,0 +1,16 @@
+[
+{
+  "modid": "firecore",
+  "name": "FireCore",
+  "description": "Base mod for all mods by FireBall1725",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["FireBall"],
+  "credits": "Special thanks to everyone that has contributed on Github",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
