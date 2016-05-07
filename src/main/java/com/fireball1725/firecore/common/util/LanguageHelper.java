@@ -18,7 +18,7 @@ public enum LanguageHelper {
         this.name = name;
     }
 
-    public String translateMessage(String modId, String message) {
+    public String translateMessage(String message, String modId) {
         if (this.name.equals(""))
             return I18n.translateToLocal(message);
 
