@@ -18,6 +18,17 @@ import java.util.concurrent.TimeUnit;
 
 @Mod(modid = ModInfo.MOD_ID, name = ModInfo.MOD_NAME, certificateFingerprint = ModInfo.FINGERPRINT, dependencies = ModInfo.DEPENDENCIES, version = ModInfo.VERSION_BUILD, guiFactory = ModInfo.GUI_FACTORY)
 public class FireCore {
+    String static currentmodid;
+    
+    //call when you start Integrating with core
+    public static void Startin(String Modid){
+        this.currentmodid = Modid;
+    }
+    //end inetgration with Core
+    public static void Endin(){
+        this.currentmodid = null;
+    }
+    
     @Mod.Instance(ModInfo.MOD_ID)
     public static FireCore instance;
 
