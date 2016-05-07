@@ -55,7 +55,7 @@ public abstract class BlockTileBase extends BlockBase implements ITileEntityProv
     }
 
     @Override
-    public final TileEntity createNewTileEntity(World worldIn, int meta) {
+    public TileEntity createNewTileEntity(World worldIn, int meta) {
         try {
             return this.tileEntityClass.newInstance();
         } catch (final InstantiationException ex) {
